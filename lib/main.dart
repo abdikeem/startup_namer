@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 
@@ -33,11 +35,17 @@ class _RandomWordsState extends State<RandomWords> {
   Widget build(BuildContext context) {
     //final wordPair = WordPair.random(); // Delete these...
     //return Text(wordPair.asPascalCase); // ... two lines.
-
     return Scaffold(
       // Add from here...
       appBar: AppBar(
         title: const Text('Startup Name Generator'),
+        actions: [
+          IconButton(
+            onPressed: _pushSaved,
+            icon: const Icon(Icons.list),
+            tooltip: 'Saved Suggestion',
+          )
+        ],
       ),
       body: _buildSuggestions(),
     ); // ... to here.
@@ -92,3 +100,5 @@ class _RandomWordsState extends State<RandomWords> {
     );
   }
 }
+
+void _pushSaved() {}
